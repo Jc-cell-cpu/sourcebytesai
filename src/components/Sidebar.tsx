@@ -1,20 +1,35 @@
 'use client'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Layout, FileText, Settings, LogOut } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { Card } from './ui/card';
 import { TbLayoutSidebarFilled } from "react-icons/tb";
+import { getUserRole } from '@/app/utils/auth';
 
 
-const menuItems = [
-    { icon: Layout, label: 'Dashboard', href: '/dashboard' },
-    { icon: FileText, label: 'Documents', href: '/documents' },
-    { icon: Settings, label: 'Settings', href: '/settings' },
-];
+
 
 export const Sidebar = () => {
     const [isExpanded, setIsExpanded] = useState(false);
+    const [role, setRole] = useState<string | null>(null);
+
+    useEffect(() => {
+        const fetchRole = async () => {
+            const userRole = await getUserRole();
+            setRole(userRole);
+        };
+
+        fetchRole();
+    }, []);
+
+    const menuItems = [
+        { icon: Layout, label: 'Dashboard', href: '/dashboard' },
+        ...(role === 'super_admin'
+            ? [{ icon: FileText, label: 'Accounts', href: '/accounts' }]
+            : [{ icon: FileText, label: 'Documents', href: '/documents' }]),
+        { icon: Settings, label: 'Settings', href: '/settings' },
+    ];
 
     return (
         <aside
@@ -33,7 +48,7 @@ export const Sidebar = () => {
                         className="w-[20px] h-[20px]"
                     />
                     <span className={cn('font-semibold text-xs whitespace-nowrap transition-all duration-300 ease-in-out',
-                        isExpanded ? 'opacity-100' : 'opacity-0 w-4 select-none'
+                        isExpanded ? 'block' : 'hidden'
                     )}>
                         SourceBytes.AI
                     </span>
