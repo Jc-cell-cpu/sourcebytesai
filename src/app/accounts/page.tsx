@@ -66,10 +66,10 @@ const Accounts = () => {
 
     const filteredData = initialData.filter((org) => org.name.toLowerCase().includes(searchQuery.toLowerCase()))
 
-    const handleAddOrganization = (data: any): void => {
-        // Handle the new organization data here
-        console.log("New organization:", data)
-    }
+    // const handleAddOrganization = (data: any): void => {
+    //     // Handle the new organization data here
+    //     console.log("New organization:", data)
+    // }
 
     return (
         <div className="container mx-auto py-6 space-y-4">
@@ -85,7 +85,10 @@ const Accounts = () => {
                     <AddOrganizationModal
                         isOpen={isModalOpen}
                         onClose={() => setIsModalOpen(false)}
-                        onSubmit={handleAddOrganization}
+                        onSubmit={(data) => {
+                            // Handle the new organization data here
+                            console.log("New organization:", data)
+                        }}
                     />
                 </div>
             </div>
