@@ -25,7 +25,7 @@ const Dashboard = () => {
     }, [router]);
 
     if (!role) {
-        return <SuperAdmindashboard />  // Show a loading state while fetching role
+        return <ChatComponent />  // Show a loading state while fetching role
     }
 
     return (

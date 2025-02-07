@@ -5,7 +5,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination"
-import { Search, Upload, ThumbsUp, ThumbsDown } from 'lucide-react'
+import { Search } from 'lucide-react'
 import { Action } from '@/components/Action'
 import { TbFilterCheck } from "react-icons/tb";
 import { PiFileArrowDownDuotone } from "react-icons/pi";

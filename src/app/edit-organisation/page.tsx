@@ -55,11 +55,11 @@ const EditOrganizationPage: React.FC<{ params: { id: string } }> = ({ params }) 
         fetchOrganization()
     }, [params.id])
 
-    const handleSave = (data: Organization) => {
-        // Handle saving the organization data here
-        console.log("Saving organization:", data)
-        router.push("/dashboard")
-    }
+    // const handleSave = (data: Organization) => {
+    //     // Handle saving the organization data here
+    //     console.log("Saving organization:", data)
+    //     router.push("/dashboard")
+    // }
 
     if (isLoading) {
         return <div className="container mx-auto py-6">Loading...</div>

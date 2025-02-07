@@ -66,7 +66,7 @@ const Accounts = () => {
 
     const filteredData = initialData.filter((org) => org.name.toLowerCase().includes(searchQuery.toLowerCase()))
 
-    const handleAddOrganization = (data: any) => {
+    const handleAddOrganization = (data: any): void => {
         // Handle the new organization data here
         console.log("New organization:", data)
     }
