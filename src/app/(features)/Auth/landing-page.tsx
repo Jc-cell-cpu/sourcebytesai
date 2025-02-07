@@ -1,12 +1,14 @@
 "use client"
 
 import Image from "next/image"
+import { useRouter } from 'next/navigation';
 import { useState } from "react"
 
 export default function LandingPage() {
     const [email, setEmail] = useState("")
     const [otp, setOtp] = useState("")
     const [showOtp, setShowOtp] = useState(false)
+    const router = useRouter();
 
     const handleSubmit = () => {
         if (!showOtp) {
@@ -23,7 +25,9 @@ export default function LandingPage() {
             if (otp && otp.length === 6) {
                 // Here you would typically verify the OTP
                 console.log("Verifying OTP", otp)
-                alert("OTP verified successfully!")
+                // alert("OTP verified successfully!")
+                router.push('/dashboard');
+
             } else {
                 alert("Please enter a valid 6-digit OTP")
             }
@@ -31,28 +35,40 @@ export default function LandingPage() {
     }
 
     return (
-        <div className="relative min-h-screen flex">
+        <div className="relative min-h-screen flex flex-col lg:flex-row">
             {/* Full screen background image */}
-            <Image src="/image 2.svg" alt="Professional workspace" fill className="object-cover" />
+            <Image
+                src="/image 2.svg"
+                alt="Professional workspace"
+                fill
+                className="object-cover"
+                priority
+            />
             <div className="absolute inset-0 bg-black/50" />
 
             {/* Left Section */}
-            <div className="relative z-10 w-full lg:w-2/5 flex flex-col justify-between p-4 sm:p-8">
+            <div className="relative z-10 w-full lg:w-2/5 flex flex-col justify-between p-4 sm:p-6 lg:p-8">
                 {/* Logo */}
-                <div>
-                    <Image src="/Frame 32.svg" alt="SourceBytes.AI Logo" width={190} height={45} className="w-[250px] h-[45px]" />
+                <div className="mb-6 lg:mb-0">
+                    <Image
+                        src="/Frame 32.svg"
+                        alt="SourceBytes.AI Logo"
+                        width={190}
+                        height={45}
+                        className="w-[180px] sm:w-[250px] h-auto"
+                    />
                 </div>
 
                 {/* Main Text */}
-                <div className="text-white">
-                    <h1 className="font-gilroy font-semibold text-[22px] leading-[35px] text-left decoration-from-font decoration-skip-ink-none mb-4 sm:mb-8">
+                <div className="text-white mb-6 lg:mb-0">
+                    <h1 className="font-gilroy font-semibold text-lg sm:text-[22px] leading-[1.4] sm:leading-[35px] text-left decoration-from-font decoration-skip-ink-none mb-4 sm:mb-8">
                         Trusted by Early Adopters to Transform Enterprise Intelligence – Join the Growing Revolution with{" "}
                         <span className="text-[#EF6A37]">SourceBytes.AI</span>
                     </h1>
 
-                    <div className="flex flex-row space-x-8 text-xs sm:text-sm">
-                        <div className="flex items-center font-gilroy font-semibold text-[15px] leading-[15px] text-left decoration-from-font decoration-skip-ink-none">
-                            <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-xs sm:text-sm">
+                        <div className="flex items-center font-gilroy font-semibold text-[13px] sm:text-[15px] leading-[15px] text-left">
+                            <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
                                 <path
                                     fillRule="evenodd"
                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -61,8 +77,8 @@ export default function LandingPage() {
                             </svg>
                             12+ Data source formats
                         </div>
-                        <div className="flex items-center font-gilroy font-semibold text-[15px] leading-[15px] text-left decoration-from-font decoration-skip-ink-none">
-                            <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <div className="flex items-center font-gilroy font-semibold text-[13px] sm:text-[15px] leading-[15px] text-left">
+                            <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
                                 <path
                                     fillRule="evenodd"
                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -76,19 +92,19 @@ export default function LandingPage() {
             </div>
 
             {/* Right Section */}
-            <div className="relative z-10 w-full lg:w-3/5 flex items-center justify-center">
-                <div className="w-full max-w-lg bg-white rounded-2xl p-10 sm:p-8 md:p-10 lg:p-16 shadow-xl m-4 sm:m-4">
-                    <div className="mb-8 lg:mb-12">
-                        <div className="w-12 h-12 bg-sourcebytes/10 rounded-lg flex items-center justify-center mb-4 sm:mb-8">
+            <div className="relative z-10 w-full lg:w-3/5 flex items-center justify-center py-4 px-4 sm:p-4">
+                <div className="w-full max-w-lg bg-white rounded-2xl p-6 sm:p-8 md:p-10 lg:p-16 shadow-xl">
+                    <div className="mb-6 sm:mb-8 lg:mb-12">
+                        <div className="w-10 sm:w-12 h-10 sm:h-12 bg-sourcebytes/10 rounded-lg flex items-center justify-center mb-4 sm:mb-8">
                             <Image
                                 src="/SYEEKBYET LOGO bg 1.svg"
                                 alt="SourceBytes.AI Logo"
                                 width={40}
                                 height={40}
-                                className="w-[40px] h-[40px]"
+                                className="w-[32px] h-[32px] sm:w-[40px] sm:h-[40px]"
                             />
                         </div>
-                        <p className="text-slate-500 font-gilroy text-sm sm:text-base">
+                        <p className="text-slate-500 font-gilroy text-sm">
                             Welcome to <span className="text-slate-500 font-semibold">SourceBytes.AI</span>
                         </p>
                         <h2 className="font-gilroy text-slate-950 font-medium text-xl sm:text-[30px] leading-tight sm:leading-[37.14px] mt-2">
@@ -103,7 +119,7 @@ export default function LandingPage() {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="Enter your email"
-                                className="w-full text-gray-500 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#EF6A37] focus:border-transparent text-sm sm:text-base"
+                                className="w-full text-gray-500 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#EF6A37] focus:border-transparent text-sm"
                             />
                         ) : (
                             <input
@@ -112,24 +128,29 @@ export default function LandingPage() {
                                 onChange={(e) => setOtp(e.target.value)}
                                 placeholder="Enter your OTP"
                                 maxLength={6}
-                                className="w-full text-gray-500 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#EF6A37] focus:border-transparent text-sm sm:text-base"
+                                className="w-full text-gray-500 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#EF6A37] focus:border-transparent text-sm"
                             />
                         )}
                         <button
                             onClick={handleSubmit}
-                            className="w-full px-4 py-3 bg-[#EF6A37] text-white rounded-lg font-medium hover:bg-[#EF6A37]/85 transition-colors text-sm sm:text-base"
+                            className="w-full px-4 py-3 bg-[#EF6A37] text-white rounded-lg font-medium hover:bg-[#EF6A37]/85 transition-colors text-sm"
                         >
                             {showOtp ? "Verify OTP" : "Continue"}
                         </button>
                     </div>
 
-                    <p className="mt-4 text-xs sm:text-sm text-gray-500 overflow-hidden text-ellipsis">
-                        By continuing you agree to our <a href="#" className="text-[#EF6A37] hover:underline">privacy policy</a> and <a href="#" className="text-[#EF6A37] hover:underline">terms of use</a>
+                    <p className="mt-4 text-xs text-gray-500">
+                        By continuing you agree to our{" "}
+                        <a href="#" className="text-[#EF6A37] hover:underline">
+                            privacy policy
+                        </a>{" "}
+                        and{" "}
+                        <a href="#" className="text-[#EF6A37] hover:underline">
+                            terms of use
+                        </a>
                     </p>
-
                 </div>
             </div>
         </div>
     )
 }
-
