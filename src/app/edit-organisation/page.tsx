@@ -39,7 +39,13 @@ const getOrganization = async (id: string): Promise<Organization | null> => {
     }
 }
 
-const EditOrganizationPage: React.FC<{ params: { id: string } }> = ({ params }) => {
+interface EditOrganizationPageProps {
+    params: {
+        id: string
+    }
+}
+
+const EditOrganizationPage: React.FC<EditOrganizationPageProps> = ({ params }) => {
     const router = useRouter()
     const [organization, setOrganization] = useState<Organization | null>(null)
     const [isLoading, setIsLoading] = useState(true)
@@ -54,12 +60,6 @@ const EditOrganizationPage: React.FC<{ params: { id: string } }> = ({ params }) 
 
         fetchOrganization()
     }, [params.id])
-
-    // const handleSave = (data: Organization) => {
-    //     // Handle saving the organization data here
-    //     console.log("Saving organization:", data)
-    //     router.push("/dashboard")
-    // }
 
     if (isLoading) {
         return <div className="container mx-auto py-6">Loading...</div>
