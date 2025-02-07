@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation'; // Use next/navigation instead of next/router
 import { ChatComponent } from '@/components/ChatComponent';
 
-import { getUserRole } from '../utils/auth';
+import { getUserRole } from '../../utils/auth';
 import SuperAdmindashboard from '@/components/SuperAdmindashboard';
 
 const Dashboard = () => {
