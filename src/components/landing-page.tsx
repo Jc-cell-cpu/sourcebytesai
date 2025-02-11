@@ -4,7 +4,7 @@ import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { AlertCircle } from "lucide-react"
+// import { AlertCircle } from "lucide-react"
 
 export default function LandingPage() {
     const [email, setEmail] = useState("")

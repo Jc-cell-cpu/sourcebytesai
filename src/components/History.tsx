@@ -1,6 +1,6 @@
 import React from 'react'
 import { Checkbox } from "@/components/ui/checkbox"
-import { CiTrash } from "react-icons/ci";
+// import { CiTrash } from "react-icons/ci";
 import { History, Trash2 } from "lucide-react";
 
 export const ChatHistory = () => {
