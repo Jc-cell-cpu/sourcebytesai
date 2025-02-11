@@ -26,10 +26,11 @@ export const Action = () => {
                 </button>
 
                 {/* Delete Action */}
-                <button className="w-full flex items-center gap-2 px-3 py-2 mt-6 text-sm text-red-500 border border-red-500 rounded-md hover:bg-red-50 transition-colors">
+                <button className="w-full flex items-center justify-center gap-2 px-3 py-2 mt-6 text-sm text-red-500 border border-red-500 rounded-md hover:bg-red-50 transition-colors">
                     <Trash2 className="h-4 w-4" />
-                    Delete
+                    <span className="text-center">Delete</span>
                 </button>
+
             </div>
         </aside>
     )

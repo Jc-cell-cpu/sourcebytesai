@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { FaPlay } from "react-icons/fa"
 import { Alert, AlertDescription } from "./ui/alert"
+import { AlertCircle } from "lucide-react"
 
 // Dummy AI responses
 const dummyResponses = [
@@ -78,10 +79,11 @@ export const ChatComponent = () => {
     }
 
     return (
-        <div className="min-h-screen bg-white text-zinc-900 flex">
+        <div className="min-h-screen bg-white text-zinc-900 flex overflow-hidden">
             {showAlert && (
-                <Alert className="absolute top-4 right-4 w-auto bg-yellow-800">
-                    <AlertDescription className="text-white">Message copied to clipboard!</AlertDescription>
+                <Alert className="absolute top-4 right-6 w-3xs bg-gradient-to-r from-lime-200 to-green-200">
+                    <AlertCircle className="h-4 w-4 text-black" />
+                    <AlertDescription className="text-black mt-1">Message copied to clipboard!</AlertDescription>
                 </Alert>
             )}
             <div className="flex-1 flex flex-col ml-20">

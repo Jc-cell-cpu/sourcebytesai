@@ -12,8 +12,8 @@ import { Label } from "@/components/ui/label"
 
 export default function Settings() {
     const [isEditModalOpen, setIsEditModalOpen] = useState(false)
-    const [name, setName] = useState("Khitish Mangal")
-    const [email, setEmail] = useState("khitish@gmail.com")
+    const [name, setName] = useState("Srichandan Mohapatra")
+    const [email, setEmail] = useState("sdmohapatra@gmail.com")
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
@@ -35,7 +35,7 @@ export default function Settings() {
                                         src="/jck"
                                         alt="Profile picture"
                                     />
-                                    <AvatarFallback className="text-black">KM</AvatarFallback>
+                                    <AvatarFallback className="text-black">SM</AvatarFallback>
                                 </Avatar>
                                 <div className="flex-1 min-w-0">
                                     <h3 className="font-semibold truncate">{name}</h3>

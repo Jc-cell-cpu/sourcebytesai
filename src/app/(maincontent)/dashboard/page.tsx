@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'; // Use next/navigation instead of n
 import { ChatComponent } from '@/components/ChatComponent';
 // import { getUserRole } from '../../utils/auth';
 import SuperAdmindashboard from '@/components/SuperAdmindashboard';
+import { Loader } from '@/components/ui/loader';
 
 const Dashboard = () => {
     const [role, setRole] = useState<string | null>(null);
@@ -26,13 +27,16 @@ const Dashboard = () => {
     }, [router]);
 
     if (!role) {
-        return <h1>loading...</h1> // Show a loading state while fetching role
+        return <div className="flex items-center justify-center h-screen">
+            <Loader size="medium" className="text-orange-500" />
+            <span className="ml-2 text-lg text-gray-600">Loading...</span>
+        </div> // Show a loading state while fetching role
     }
 
     return (
         <>
 
-            <div>
+            <div className='overflow-hidden'>
                 {role === "super_admin" ? <SuperAdmindashboard /> : <ChatComponent />}
             </div>
         </>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Checkbox } from "@/components/ui/checkbox"
 import { CiTrash } from "react-icons/ci";
-import { History } from "lucide-react";
+import { History, Trash2 } from "lucide-react";
 
 export const ChatHistory = () => {
     const historyItems = [
@@ -11,12 +11,12 @@ export const ChatHistory = () => {
         { id: 4, title: "Code optimization help", time: "3 days ago" },
     ];
     return (
-        <aside className="w-80 border-l border-zinc-200 p-4 hidden lg:flex flex-col">
+        <aside className="w-80 border-l border-zinc-200 p-4 hidden lg:flex flex-col" >
             <div className="flex items-center gap-2 mb-6">
                 <History className="w-5 h-5 text-zinc-700" />
                 <h2 className="text-lg font-semibold">History</h2>
             </div>
-            <div className="space-y-4 grow overflow-y-auto">
+            <div className="space-y-4 grow overflow-y-hidden">
                 {historyItems.map((item) => (
                     <div
                         key={item.id}
@@ -34,9 +34,9 @@ export const ChatHistory = () => {
             </div>
 
             {/* Delete Button Stays at Bottom */}
-            <button className="p-3 mt-4 w-full bg-zinc-100 text-zinc-400 hover:bg-slate-200 text-sm rounded-lg transition-colors shrink-0 flex items-center justify-center">
-                <CiTrash className="w-4 h-4 text-zinc-500 mr-1" />
-                Clear History
+            <button className="p-3 mt-4 w-full bg-zinc-100 text-red-500 border border-red-500 hover:bg-red-50 text-sm rounded-lg transition-colors shrink-0 flex items-center justify-center">
+                <Trash2 className="w-4 h-4 mr-1" />
+                <span className="text-center">Clear History</span>
             </button>
         </aside>
     )

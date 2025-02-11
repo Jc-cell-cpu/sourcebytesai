@@ -1,14 +1,22 @@
 "use client"
 
 import Image from "next/image"
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation"
 import { useState } from "react"
+import { Alert, AlertDescription } from "@/components/ui/alert"
+import { AlertCircle } from "lucide-react"
 
 export default function LandingPage() {
     const [email, setEmail] = useState("")
     const [otp, setOtp] = useState("")
     const [showOtp, setShowOtp] = useState(false)
-    const router = useRouter();
+    const [alertMessage, setAlertMessage] = useState("")
+    const router = useRouter()
+
+    const showAlert = (message: string) => {
+        setAlertMessage(message)
+        setTimeout(() => setAlertMessage(""), 3000)
+    }
 
     const handleSubmit = () => {
         if (!showOtp) {
@@ -18,32 +26,29 @@ export default function LandingPage() {
                 // Here you would typically send the OTP to the user's email
                 console.log("Sending OTP to", email)
             } else {
-                alert("Please enter a valid email address")
+                showAlert("Please enter a valid email address")
             }
         } else {
             // Validate OTP
             if (otp && otp.length === 6) {
                 // Here you would typically verify the OTP
                 console.log("Verifying OTP", otp)
-                // alert("OTP verified successfully!")
-                router.push('/dashboard');
-
+                router.push("/dashboard")
             } else {
-                alert("Please enter a valid 6-digit OTP")
+                showAlert("Please enter a valid 6-digit OTP")
             }
         }
     }
 
     return (
         <div className="relative min-h-screen flex flex-col lg:flex-row">
+            {alertMessage && (
+                <Alert className="fixed top-4 right-4 w-auto max-w-sm z-50 bg-red-200 text-red-700">
+                    <AlertDescription className="mt-0.5">{alertMessage}</AlertDescription>
+                </Alert>
+            )}
             {/* Full screen background image */}
-            <Image
-                src="/image 2.svg"
-                alt="Professional workspace"
-                fill
-                className="object-cover"
-                priority
-            />
+            <Image src="/image 2.svg" alt="Professional workspace" fill className="object-cover" priority />
             <div className="absolute inset-0 bg-black/50" />
 
             {/* Left Section */}
@@ -108,7 +113,7 @@ export default function LandingPage() {
                             Welcome to <span className="text-slate-500 font-semibold">SourceBytes.AI</span>
                         </p>
                         <h2 className="font-gilroy text-slate-950 font-medium text-xl sm:text-[30px] leading-tight sm:leading-[37.14px] mt-2">
-                            {showOtp ? "Get started with your email" : "Get started with your email"}
+                            {showOtp ? "Enter your OTP" : "Get started with your email"}
                         </h2>
                     </div>
 
@@ -154,3 +159,4 @@ export default function LandingPage() {
         </div>
     )
 }
+

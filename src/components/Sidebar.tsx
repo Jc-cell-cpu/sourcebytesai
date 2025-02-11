@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Layout, FileText, Settings, LogOut } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
@@ -7,12 +8,10 @@ import { Card } from './ui/card';
 import { TbLayoutSidebarFilled } from "react-icons/tb";
 import { getUserRole } from '@/app/utils/auth';
 
-
-
-
 export const Sidebar = () => {
     const [isExpanded, setIsExpanded] = useState(false);
     const [role, setRole] = useState<string | null>(null);
+    const router = useRouter();
 
     useEffect(() => {
         const fetchRole = async () => {
@@ -22,6 +21,15 @@ export const Sidebar = () => {
 
         fetchRole();
     }, []);
+
+    const handleLogout = () => {
+        // Clear authentication (remove token from cookies/localStorage)
+        localStorage.removeItem('authToken'); // Modify based on your auth mechanism
+        sessionStorage.removeItem('authToken');
+
+        // Redirect to home page
+        router.push('/');
+    };
 
     const menuItems = [
         { icon: Layout, label: 'Dashboard', href: '/dashboard' },
@@ -96,7 +104,10 @@ export const Sidebar = () => {
             </div>
 
             <div className="p-4 border-t border-white/10">
-                <button className="flex items-center gap-3 w-full p-3 rounded-lg hover:bg-white/10 text-left transition-all duration-300 ease-in-out">
+                <button
+                    onClick={handleLogout}
+                    className="flex items-center gap-3 w-full p-3 rounded-lg hover:bg-white/10 text-left transition-all duration-300 ease-in-out"
+                >
                     <LogOut className="w-5 h-5" />
                     <span className={cn('whitespace-nowrap transition-all duration-300 ease-in-out',
                         isExpanded ? 'opacity-100' : 'opacity-0 w-0'
