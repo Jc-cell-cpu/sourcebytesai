@@ -68,7 +68,7 @@ export default function LandingPage() {
 
                     <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-xs sm:text-sm">
                         <div className="flex items-center font-gilroy font-semibold text-[13px] sm:text-[15px] leading-[15px] text-left">
-                            <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                            <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2 shrink-0" viewBox="0 0 20 20" fill="currentColor">
                                 <path
                                     fillRule="evenodd"
                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -78,7 +78,7 @@ export default function LandingPage() {
                             12+ Data source formats
                         </div>
                         <div className="flex items-center font-gilroy font-semibold text-[13px] sm:text-[15px] leading-[15px] text-left">
-                            <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                            <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2 shrink-0" viewBox="0 0 20 20" fill="currentColor">
                                 <path
                                     fillRule="evenodd"
                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -119,7 +119,7 @@ export default function LandingPage() {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="Enter your email"
-                                className="w-full text-gray-500 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#EF6A37] focus:border-transparent text-sm"
+                                className="w-full text-gray-500 px-4 py-3 border border-gray-300 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-[#EF6A37] focus:border-transparent text-sm"
                             />
                         ) : (
                             <input
@@ -128,7 +128,7 @@ export default function LandingPage() {
                                 onChange={(e) => setOtp(e.target.value)}
                                 placeholder="Enter your OTP"
                                 maxLength={6}
-                                className="w-full text-gray-500 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#EF6A37] focus:border-transparent text-sm"
+                                className="w-full text-gray-500 px-4 py-3 border border-gray-300 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-[#EF6A37] focus:border-transparent text-sm"
                             />
                         )}
                         <button

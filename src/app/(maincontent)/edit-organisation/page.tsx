@@ -78,7 +78,7 @@ const EditOrganizationPage: React.FC<EditOrganizationPageProps> = ({ params }) =
 
     return (
         <div className="container mx-auto py-6">
-            <div className="grid w-full max-w-5xl gap-6 p-6 mx-auto bg-white rounded-lg shadow-lg md:grid-cols-[2fr,1fr]">
+            <div className="grid w-full max-w-5xl gap-6 p-6 mx-auto bg-white rounded-lg shadow-lg md:grid-cols-[2fr_1fr]">
                 {/* Left side - Form */}
                 <div className="space-y-4">
                     <div className="flex justify-between items-center">

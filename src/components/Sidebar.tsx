@@ -78,7 +78,7 @@ export const Sidebar = () => {
                 ))}
             </nav>
             <div className="px-4 mb-4">
-                <Card className={cn('relative overflow-hidden bg-gradient-to-b from-[#eb9471] to-[#d05524] text-white p-6',
+                <Card className={cn('relative overflow-hidden bg-linear-to-b from-[#eb9471] to-[#d05524] text-white p-6',
                     isExpanded ? 'opacity-100' : 'opacity-0 w-0'
                 )}>
                     <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full transform translate-x-8 -translate-y-8" />

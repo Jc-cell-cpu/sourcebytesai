@@ -16,7 +16,7 @@ export const ChatHistory = () => {
                 <History className="w-5 h-5 text-zinc-700" />
                 <h2 className="text-lg font-semibold">History</h2>
             </div>
-            <div className="space-y-4 flex-grow overflow-y-auto">
+            <div className="space-y-4 grow overflow-y-auto">
                 {historyItems.map((item) => (
                     <div
                         key={item.id}

@@ -7,6 +7,7 @@ import { FiCopy } from "react-icons/fi"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { FaPlay } from "react-icons/fa"
+import { Alert, AlertDescription } from "./ui/alert"
 
 // Dummy AI responses
 const dummyResponses = [
@@ -26,6 +27,7 @@ interface Message {
 export const ChatComponent = () => {
     const [messages, setMessages] = useState<Message[]>([])
     const [inputText, setInputText] = useState("")
+    const [showAlert, setShowAlert] = useState(false)
 
     const handleSendMessage = () => {
         if (inputText.trim() === "") return
@@ -53,7 +55,9 @@ export const ChatComponent = () => {
 
     const handleCopyMessage = (text: string) => {
         navigator.clipboard.writeText(text).then(() => {
-            alert("Message copied to clipboard!")
+            // alert("Message copied to clipboard!")
+            setShowAlert(true)
+            setTimeout(() => setShowAlert(false), 3000)
         })
     }
 
@@ -75,6 +79,11 @@ export const ChatComponent = () => {
 
     return (
         <div className="min-h-screen bg-white text-zinc-900 flex">
+            {showAlert && (
+                <Alert className="absolute top-4 right-4 w-auto bg-yellow-800">
+                    <AlertDescription className="text-white">Message copied to clipboard!</AlertDescription>
+                </Alert>
+            )}
             <div className="flex-1 flex flex-col ml-20">
                 <div className="flex-1 flex relative">
                     <main className="flex-1 flex flex-col p-6 max-w-4xl mx-auto w-full relative">
@@ -161,7 +170,7 @@ export const ChatComponent = () => {
                                 value={inputText}
                                 onChange={(e) => setInputText(e.target.value)}
                                 placeholder="Write here..."
-                                className="flex-1 p-3 rounded-lg border border-zinc-200 bg-white text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm resize-none overflow-hidden"
+                                className="flex-1 p-3 rounded-lg border border-zinc-200 bg-white text-zinc-900 placeholder:text-zinc-400 focus:outline-hidden focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm resize-none overflow-hidden"
                                 rows={1}
                                 onInput={(e) => {
                                     const target = e.target as HTMLTextAreaElement;

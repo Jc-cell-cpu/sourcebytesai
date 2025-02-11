@@ -22,7 +22,7 @@ export default function Settings() {
     }
 
     return (
-        <div className="container mx-auto p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-[1.5fr,1fr] gap-6 lg:gap-8 max-w-6xl">
+        <div className="container mx-auto p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-6 lg:gap-8 max-w-6xl">
             {/* Left Column */}
             <div className="space-y-6 lg:space-y-8">
                 <div>
@@ -43,7 +43,7 @@ export default function Settings() {
                                 </div>
                                 <Dialog open={isEditModalOpen} onOpenChange={setIsEditModalOpen}>
                                     <DialogTrigger asChild>
-                                        <button className="text-gray-300 hover:text-white flex-shrink-0">
+                                        <button className="text-gray-300 hover:text-white shrink-0">
                                             <Pencil className="h-4 w-4" />
                                         </button>
                                     </DialogTrigger>
@@ -101,15 +101,15 @@ export default function Settings() {
                             <h4 className="font-semibold text-sm sm:text-base">Payment Details :</h4>
                             <div className="space-y-1.5 sm:space-y-2 text-sm">
                                 <div className="flex items-center gap-2">
-                                    <Check className="h-4 w-4 flex-shrink-0" />
+                                    <Check className="h-4 w-4 shrink-0" />
                                     <span>Duration: 12 Months</span>
                                 </div>
                                 <div className="flex items-center gap-2">
-                                    <Check className="h-4 w-4 flex-shrink-0" />
+                                    <Check className="h-4 w-4 shrink-0" />
                                     <span>Status: Active</span>
                                 </div>
                                 <div className="flex items-center gap-2">
-                                    <Check className="h-4 w-4 flex-shrink-0" />
+                                    <Check className="h-4 w-4 shrink-0" />
                                     <span>Expiry Date: 22.06.24</span>
                                 </div>
                             </div>
